@@ -1101,6 +1101,10 @@ They are based on your Singularity level.`
   get("baselessMilestoneTab").style.display=(game.sfEver.includes(51)?"inline-block":"none")
   get("maxSing").style.display=(getBaseless()>=2?"block":"none")
   get("minSing").style.display=(getBaseless()>=2?"block":"none")
+  get("singRange").style.display=(getBaseless()>=2?"block":"none")
+  get("singRange").min=-(game.sing.dm+game.sing.nw)
+  get("singRange").max=game.manifolds
+  get("singRange").value=game.sing.m
 }
 
 function dup(n, spectate = 0) {
@@ -2087,4 +2091,8 @@ function postBHOproj(x) {
   let amt = game.OP / 1e270;
   if (game.OP > BHO) amt = (BHO / 1e270) * 3 ** (game.OP / BHO - 1);
   return Math.floor((goal - amt) / x);
+}
+
+function onSingRangeChange() {
+  game.sing.m = parseInt(get("singRange").value)
 }

@@ -127,4 +127,8 @@ Oops, ignore all the `!important`, please.
   #aup5, #aup6, #aup7, #aup8 {
     width: 199px !important;
   }
+
+  #singRange {
+    width: 90% !important;
+  }
 }

@@ -521,3 +521,11 @@ invisible {
 .pointer {
   cursor: pointer;
 }
+
+#singRange {
+  width: 50%;
+}
+
+#base1 {
+  font-size: 10pt;
+}
