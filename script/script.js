@@ -1074,10 +1074,11 @@ function render() {
     "Upgrade with<br>" +
     beautify(1e6 * (game.sfBought.includes(23)?4:5) ** game.sing.dm) +
     "<br>Dark Manifolds";
-  get("singFBtext").textContent =
-    "You are currently getting " +
-    commafy(getFBps()) +
-    " Factor Boosts per second";
+  get("singFBtext").textContent = game.chal8 === 1
+    ? "Your decrementy is multiplying by " + beautifypower(getDecrementyRate(1000)) + " per second"
+    : game.ord > 1e265 && game.cAutoOn.boost === 0
+      ? "You are currently getting " + beautify(getIncrementyRate(1000)) + " incrementy per second"
+      : "You are currently getting " + commafy(getFBps()) + " Factor Boosts per second";
   get("sacrNw").innerHTML =
     "Upgrade with<br>" +
     beautifyEN(1e20 * (game.sfBought.includes(21)?30:100) ** game.sing.nw) +
