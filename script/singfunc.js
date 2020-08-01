@@ -75,5 +75,5 @@ let singfunctions = [
   SF(16, [62], 72, [0,0]),
   SF(Infinity, [63], 73, [0,0]),
   SF(Infinity, [71,72,73], 81, [0,0]),
-  
+
 ];

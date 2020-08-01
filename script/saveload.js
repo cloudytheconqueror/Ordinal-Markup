@@ -122,7 +122,7 @@ function handleVeryOldSaves(loadgame) {
     if (game.boostUnlock === 1 && game.boosters + (game.upgrades.includes(1) ? 1 : 0) >= 2) {
       game.boosters -= 1;
     } else if (game.boostUnlock === 1) game.factorBoosts += 1;
-    
+
   }
 }
 

@@ -20,11 +20,11 @@ function drawTreeBranch(num1, num2) {
     var y2 = end.top + (end.height / 2) + (document.documentElement.scrollTop || document.body.scrollTop);
     ctx.lineWidth = 15;
     ctx.beginPath();
-    ctx.strokeStyle = "#fff" 
+    ctx.strokeStyle = "#fff"
     if (!game.sfBought.includes(Number(num2.split("F")[1]))) ctx.strokeStyle = "#777"
     if (!game.sfBought.includes(Number(num1.split("F")[1]))) ctx.strokeStyle = "#333"
     if (game.theme==0) {
-      ctx.strokeStyle = "#000" 
+      ctx.strokeStyle = "#000"
       if (!game.sfBought.includes(Number(num2.split("F")[1]))) ctx.strokeStyle = "#888"
       if (!game.sfBought.includes(Number(num1.split("F")[1]))) ctx.strokeStyle = "#ccc"
     }
@@ -46,5 +46,5 @@ function drawStudyTree() {
 		  singfunctions[arr].prereq.forEach(parent => {
 			if (game.sfEver.includes(parent)) {drawTreeBranch("SF" + parent,"SF"+singfunctions[arr].id.toString());}
 		}) // prereq is id lmao not the object itself
-	} //  i know that's bad but i mean there's no use for the other stuff also it would be a lot harder to test if the prerequisites were met also you forgot to make it update 
+	} //  i know that's bad but i mean there's no use for the other stuff also it would be a lot harder to test if the prerequisites were met also you forgot to make it update
 } // let me check, in the render loop, it draws the study tree also it doesn't update the stuff when you respec

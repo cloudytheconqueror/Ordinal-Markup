@@ -11,8 +11,8 @@ function exitChallenge() {
 
 function completeChallenge() {
   if (game.OP >= (
-    game.chal8 === 1 
-    ? getChal8Goal(game.chal8Comp) 
+    game.chal8 === 1
+    ? getChal8Goal(game.chal8Comp)
     : challengeGoals[game.challenge - 1][game.challengeCompletion[game.challenge - 1]]
   )) {
     if (game.chal8 === 1) {
@@ -24,14 +24,14 @@ function completeChallenge() {
       game.chal8Comp += 1;
       }
     } else if (game.leastBoost <= 15) {
-      
+
         while (
-			game.challengeCompletion[game.challenge - 1] <= 2 && 
+			game.challengeCompletion[game.challenge - 1] <= 2 &&
 			game.OP >= challengeGoals[game.challenge - 1][game.challengeCompletion[game.challenge - 1]]
 		) {
           game.challengeCompletion[game.challenge - 1] += 1;
         }
-      
+
     } else {
       game.challengeCompletion[game.challenge - 1] += 1;
     }
@@ -47,10 +47,10 @@ function enterChallenge(c) {
 	let conf;
 	switch (game.bConf.chal) {
 		case 1:
-			conf = confirm("Are you sure you want to start a challenge?" + 
+			conf = confirm("Are you sure you want to start a challenge?" +
 			" You'll forfeit your current run in favor of the challenge.");
 			break;
-	
+
 		default:
 			conf = true;
 			break;
@@ -74,7 +74,7 @@ function enterChallenge8() {
 			conf = confirm("Are you sure you want to start a challenge? You'll " +
 			"forfeit your current run in favor of the challenge.");
 			break;
-	
+
 		default:
 			conf = true;
 			break;

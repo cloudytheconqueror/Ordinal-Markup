@@ -1289,7 +1289,7 @@ function getManifolds() {
 function changeDynamic(ms) {
   if (game.dynamicUnlock == 1)
     game.dynamic +=
-      ms / 1000000 * (game.iups[6] == 1 ? 100*(game.sfBought.includes(32) ? 100 : 1): 1); 
+      ms / 1000000 * (game.iups[6] == 1 ? 100*(game.sfBought.includes(32) ? 100 : 1): 1);
   if (game.challenge == 6 || game.challenge == 7) //No update, that was just the previous minor upgrade time to make more studies
     game.dynamic -=
       ((10 ** 297) /

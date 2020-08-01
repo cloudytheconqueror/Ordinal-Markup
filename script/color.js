@@ -40,7 +40,7 @@ function HSL(hue) {
     B = X;
     R = 255;
   }
-  return convertHex(R, G, B);  
+  return convertHex(R, G, B);
 }
 
 function colorWrap(string, coloring) {

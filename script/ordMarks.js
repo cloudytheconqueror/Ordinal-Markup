@@ -113,7 +113,7 @@ function setMarks() {
     tempList.push(item.replace("ψ(", "ψ(ε<sub>Ω2</sub><sup>ε<sub>Ω2</sub><sup>").concat("marker").replace(/\)marker/g,"</sup></sup>)"));
   });
   ordMarks[1] = ordMarks[1].concat(tempList);
-  
+
   ordMarks[1].forEach(item => {
     ordMarks[0].push(item);
   });
@@ -130,4 +130,3 @@ function setMarks() {
   });
   ordMarks[2] = ordMarks[2].concat(tempList);
 }
-
