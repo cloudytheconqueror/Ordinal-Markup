@@ -1076,7 +1076,7 @@ function render() {
     "<br>Dark Manifolds";
   get("singFBtext").textContent = game.chal8 === 1
     ? "Your decrementy is multiplying by " + beautifypower(getDecrementyRate(1000)) + " per second"
-    : game.ord > 1e265 && game.cAutoOn.boost === 0
+    : game.ord > 1e265 && (game.cAutoOn.boost === 0 || game.challenge !== 0)
       ? "You are currently getting " + beautify(getIncrementyRate(1000)) + " incrementy per second"
       : "You are currently getting " + commafy(getFBps()) + " Factor Boosts per second";
   get("sacrNw").innerHTML =
