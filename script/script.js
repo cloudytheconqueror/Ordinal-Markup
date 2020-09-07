@@ -360,9 +360,9 @@ function loop(unadjusted, off = 0) {
     game.over = 0;
     game.ord = Math.max(Math.min(game.succAuto, game.limAuto), 4e270);
   }
-  // Commented out to remove ordinal cap in c8
-  // if ((!chal8Tip) && inChal(8) && calcOrdPoints() >= 1e30*1e10**(game.base==5&&game.sfBought.includes(61)))
-    // game.ord = game.base ** (game.base * 3+(game.base==5&&game.sfBought.includes(61)?game.base:0));
+  // Ordinal cap in c8 increased from w^(w3) to w^(w^2x2+w)
+  if ((!chal8Tip) && inChal(8) && calcOrdPoints() >= 1e210)
+    game.ord = game.base ** (game.base**2*2 + game.base);
   changeDynamic(ms);
   if (game.dynamic < 0) game.dynamic = 0;
   if (ms > 0) {
