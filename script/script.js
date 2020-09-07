@@ -175,7 +175,7 @@ const calculate = window.setInterval(() => {
 }, game.msint);
 
 function loop(unadjusted, off = 0) {
-  let ms=unadjusted
+  let ms=unadjusted * 1000; // x1000 here!
   if (inChal(8)&&game.decrementy<10&&unadjusted != 0) {
     ms=50
   }
@@ -186,7 +186,7 @@ function loop(unadjusted, off = 0) {
   if (game.leastBoost === null) game.leastBoost = Infinity;
   if (game.leastBoost === "null") game.leastBoost = Infinity;
   if (typeof game.leastBoost === "undefined") game.leastBoost = Infinity;
-  game.collapseTime += ms / 1000;
+  game.collapseTime += ms / 1000 / 1000; // Not multiplying by 1000
   game.base = calcBase();
   game.lastTick = Date.now();
   game.qolSM.nc8 = get("nonC8Auto").value;
@@ -360,8 +360,9 @@ function loop(unadjusted, off = 0) {
     game.over = 0;
     game.ord = Math.max(Math.min(game.succAuto, game.limAuto), 4e270);
   }
-  if ((!chal8Tip) && inChal(8) && calcOrdPoints() >= 1e30*1e10**(game.base==5&&game.sfBought.includes(61)))
-    game.ord = game.base ** (game.base * 3+(game.base==5&&game.sfBought.includes(61)?game.base:0));
+  // Commented out to remove ordinal cap in c8
+  // if ((!chal8Tip) && inChal(8) && calcOrdPoints() >= 1e30*1e10**(game.base==5&&game.sfBought.includes(61)))
+    // game.ord = game.base ** (game.base * 3+(game.base==5&&game.sfBought.includes(61)?game.base:0));
   changeDynamic(ms);
   if (game.dynamic < 0) game.dynamic = 0;
   if (ms > 0) {
