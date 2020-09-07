@@ -1380,7 +1380,7 @@ function changeDynamic(ms) {
       ms / 1000000 * (game.iups[6] == 1 ? 100*(game.sfBought.includes(32) ? 100 : 1): 1); 
   if (inChal(6)) //No update, that was just the previous minor upgrade time to make more studies
   // Dynamic no longer goes below 0.1
-    game.dynamic = Math.max(0.1, game.dynamic -
+    game.dynamic = Math.max(0.1 / getManifoldEffect(), game.dynamic -
       ((10 ** 297) /
       2 /
       (game.upgrades.includes(14) ? 10 ** 299 : 1) /
