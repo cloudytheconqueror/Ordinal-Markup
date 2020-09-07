@@ -1379,17 +1379,21 @@ function changeDynamic(ms) {
     game.dynamic +=
       ms / 1000000 * (game.iups[6] == 1 ? 100*(game.sfBought.includes(32) ? 100 : 1): 1); 
   if (inChal(6)) //No update, that was just the previous minor upgrade time to make more studies
-  // Dynamic no longer goes below 0.1
-    game.dynamic = Math.max(0.1 / getManifoldEffect(), game.dynamic -
+    game.dynamic -=
       ((10 ** 297) /
       2 /
       (game.upgrades.includes(14) ? 10 ** 299 : 1) /
-      getManifoldEffect()) * ms);
+      getManifoldEffect()) * ms;
   let capp =
     10 *
     getDarkManifoldEffect() *
     (game.aups.includes(6) ? game.assCard[1].mult.toNumber() : 1);
   if (game.dynamic >= capp) game.dynamic = capp;
+  // Dynamic no longer goes below 0.1 if upgrade 14 is purchased
+  if (game.upgrades.includes(14))
+    game.dynamic = Math.max(game.dynamic, 0.1 **
+      (game.upgrades.includes(13) && (inChal(1)||inChal(3)||inChal(5)||inChal(7)||inChal(9)) ? 0.5 : 1) /
+      getManifoldEffect());
 }
 
 function getDarkManifolds() {
